@@ -2,22 +2,29 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import * as signalR from '@aspnet/signalr-client';
 
+//import { CameraPage } from '../camera/camera';
+
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+    selector: 'page-home',
+    templateUrl: 'home.html'
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+    constructor(public navCtrl: NavController) {
 
-  }
+    }
+    //cameraPage:any = CameraPage;
+    OpenCamera(){
+        //this.cameraPage.sert
 
-
+    }
     public counter: number = 0;
     onTap() {
-
         this.counter++;
         alert("Tapped " + this.counter + " times!");
+    }
+
+    sendMessage(){
         this.connection.invoke("Send", "test" + this.counter);
     }
 
@@ -60,7 +67,7 @@ export class HomePage {
 
         this.connection.start()
             .then(data => {
-                this.connection.invoke("RegisterUserMap",1,1);
+                this.connection.invoke("RegisterUserMap", 1, 1);
             })
             .catch(err => {
                 this.appendLine(err, 'red');
