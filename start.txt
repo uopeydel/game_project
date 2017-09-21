@@ -1,0 +1,5 @@
+https://ionicframework.com/getting-started/
+
+ionic start chatAssistant tabs
+cd chatAssistant 
+ionic serve
