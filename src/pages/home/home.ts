@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import * as signalR from '@aspnet/signalr-client';
-
-//import { CameraPage } from '../camera/camera';
+import * as signalR from '@aspnet/signalr-client'; 
+import { CameraPage } from '../camera/camera';
 
 @Component({
     selector: 'page-home',
@@ -10,9 +9,16 @@ import * as signalR from '@aspnet/signalr-client';
 })
 export class HomePage {
 
-    constructor(public navCtrl: NavController) {
+    constructor(public navCtrl: NavController  ) {
 
     }
+
+    redirect(){
+
+        this.navCtrl.push(CameraPage);
+    }
+
+
     //cameraPage:any = CameraPage;
     OpenCamera(){
         //this.cameraPage.sert
