@@ -31,6 +31,7 @@ import { FriendListPage } from "../pages/friendlist/friendlist";
 import { ChatListPage } from "../pages/chatlist/chatlist";
 import { ChatPage } from "../pages/chat/chat";
 import { SettingPage } from "../pages/setting/setting";
+import { SearchForAddFriendModal } from "../pages/searchforaddfriendmodal/searchforaddfriendmodal";
 //
 
 
@@ -52,6 +53,8 @@ const APP_PROVIDERS = [
     ChatListPage,
     ChatPage,
     SettingPage,
+
+    SearchForAddFriendModal
 
   ],
   imports: [
@@ -78,6 +81,8 @@ const APP_PROVIDERS = [
     ChatListPage,
     ChatPage,
     SettingPage,
+
+    SearchForAddFriendModal
   ],
   providers: [
     Camera,
