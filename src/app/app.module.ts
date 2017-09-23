@@ -27,6 +27,13 @@ import { AuthenticationService } from '../pages/security/authentication/service/
 import { Http, HttpModule, RequestOptions, XHRBackend } from '@angular/http';
 import { LocalStorageModule } from "angular-2-local-storage/dist";
 
+import { FriendListPage } from "../pages/friendlist/friendlist";
+import { ChatListPage } from "../pages/chatlist/chatlist";
+import { ChatPage } from "../pages/chat/chat";
+import { SettingPage } from "../pages/setting/setting";
+//
+
+
 const APP_PROVIDERS = [
   Configuration,
   Constants,
@@ -41,12 +48,16 @@ const APP_PROVIDERS = [
     CameraPage,
 
     LoginComponent,
+    FriendListPage,
+    ChatListPage,
+    ChatPage,
+    SettingPage,
 
   ],
   imports: [
     HttpModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp , {tabsPlacement:'top'}),
 
     LocalStorageModule.withConfig({
       prefix: 'README',
@@ -62,7 +73,11 @@ const APP_PROVIDERS = [
     TabsPage,
     CameraPage,
 
-    LoginComponent
+    LoginComponent,
+    FriendListPage,
+    ChatListPage,
+    ChatPage,
+    SettingPage,
   ],
   providers: [
     Camera,

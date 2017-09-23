@@ -1,21 +1,26 @@
 ﻿<ion-header>
   <ion-navbar>
     <ion-title>
-      login
+      MyChat
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <div class="list list-inset">
-    <label class="item item-input">
-        <input type="text" placeholder="username" [(ngModel)]="username">
-      </label>
-    <label class="item item-input">
-        <input type="password" placeholder="password" [(ngModel)]="password">
-      </label>
 
-  </div>
-  <button (click)="onLogin()">
-      Submit
-    </button>
+
+  <ion-item>
+    <ion-label floating>Username</ion-label>
+    <ion-input type="text" [(ngModel)]="username"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+
+
+  <button ion-button color="light" (click)="onLogin()">
+    Login
+  </button>
+
 </ion-content>

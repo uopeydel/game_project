@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import * as signalR from '@aspnet/signalr-client'; 
+import * as signalR from '@aspnet/signalr-client';
 import { CameraPage } from '../camera/camera';
 
 @Component({
@@ -9,18 +9,18 @@ import { CameraPage } from '../camera/camera';
 })
 export class HomePage {
 
-    constructor(public navCtrl: NavController  ) {
+    constructor(public navCtrl: NavController) {
 
     }
 
-    redirect(){
+    redirect() {
 
         this.navCtrl.push(CameraPage);
     }
 
 
     //cameraPage:any = CameraPage;
-    OpenCamera(){
+    OpenCamera() {
         //this.cameraPage.sert
 
     }
@@ -30,7 +30,7 @@ export class HomePage {
         alert("Tapped " + this.counter + " times!");
     }
 
-    sendMessage(){
+    sendMessage() {
         this.connection.invoke("Send", "test" + this.counter);
     }
 

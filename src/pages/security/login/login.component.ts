@@ -14,6 +14,8 @@ import { AuthenticationService } from '../authentication/service/auth.service';
 /* Import model */
 import { AuthData } from '../authentication/model/auth.data';
 import { UserModel } from '../../../app/user-model';
+import { TabsPage } from "../../tabs/tabs";
+import { NavController } from "ionic-angular";
 
 
 @Component({
@@ -29,7 +31,7 @@ export class LoginComponent implements OnInit {
         private Config: Configuration,
         private Cons: Constants,
         private http: Http,
-
+        public navCtrl: NavController 
     ) {
     }
 
@@ -59,20 +61,24 @@ export class LoginComponent implements OnInit {
 
     Login(username: string, password: string) {
 
-        this.AuthService.login(username, password)
-            .subscribe((response: AuthData) => {
-                this.auth_data = response;
-                console.log(this.auth_data);
-                //Storage Session
-                this.localStorageService.set("userEmail", this.username);
-                this.localStorageService.set("accessToken", this.auth_data.access_token);
-                this.localStorageService.set("refreshToken", this.auth_data.refresh_token);
-                this.localStorageService.set("expiresTime", (Date.now() / 1000) + this.auth_data.expires_in);
+        this.navCtrl.push(TabsPage); 
 
-                this.getUserData();
-            }, error => {
-                console.log("login error", error);
-            });
+        // this.AuthService.login(username, password)
+        //     .subscribe((response: AuthData) => {
+        //         this.auth_data = response;
+        //         console.log(this.auth_data);
+        //         //Storage Session
+        //         this.localStorageService.set("userEmail", this.username);
+        //         this.localStorageService.set("accessToken", this.auth_data.access_token);
+        //         this.localStorageService.set("refreshToken", this.auth_data.refresh_token);
+        //         this.localStorageService.set("expiresTime", (Date.now() / 1000) + this.auth_data.expires_in);
+
+
+                
+        //         //this.getUserData();
+        //     }, error => {
+        //         console.log("login error", error);
+        //     });
     }
 
     getUserData() {
@@ -83,8 +89,10 @@ export class LoginComponent implements OnInit {
                 let Userdata = this.localStorageService.get<UserModel>("User");
                 console.log('set => localStorage Users', Userdata);
                 this.AuthService.checkRoleForRedirect();
+                this.navCtrl.push(TabsPage); 
             }, error => {
                 console.log("Get User Data error", error);
+                this.navCtrl.push(TabsPage); 
             })
     }
 
