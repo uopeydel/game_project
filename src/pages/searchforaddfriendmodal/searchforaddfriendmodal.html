@@ -1,12 +1,24 @@
 <ion-content padding>
 
     <ion-buttons  end>
-        <button ion-fab mini (click)="openSearchForAddFriendModal()" style="background-color: gray;">
+        <button ion-fab mini (click)="tryAddBadge()" style="background-color: gray;">
                     <ion-icon name="md-person-add"></ion-icon>
                   </button>
     </ion-buttons>
 
     <button ion-button (click)="dismiss()" style="background-color: gray;" end>
         close
+    </button>
+
+    <button ion-button (click)="setBadge()" style="background-color: gray;" end>
+        setBadge
+    </button>
+
+    <button ion-button (click)="increaseBadge()" style="background-color: gray;" end>
+        increaseBadge
+    </button>
+
+    <button ion-button (click)="clearBadge()" style="background-color: gray;" end>
+        clearBadge
     </button>
 </ion-content>

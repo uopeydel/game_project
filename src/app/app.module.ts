@@ -11,7 +11,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { CameraPage } from '../pages/camera/camera';
 
 import { Camera, CameraOptions } from '@ionic-native/camera';
-
+import { Badge } from '@ionic-native/badge';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -86,6 +86,7 @@ const APP_PROVIDERS = [
   ],
   providers: [
     Camera,
+    Badge,
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
