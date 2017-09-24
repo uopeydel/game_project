@@ -1,5 +1,5 @@
 export interface UserModel {
-    _id: number;
+    _id: string;
     displayName: string;
     statusMessage: string;
     pictureUrl: string;

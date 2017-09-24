@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
         private Config: Configuration,
         private Cons: Constants,
         private http: Http,
-        public navCtrl: NavController 
+        public navCtrl: NavController
     ) {
     }
 
@@ -60,8 +60,8 @@ export class LoginComponent implements OnInit {
     }
 
     Login(username: string, password: string) {
-
-        this.navCtrl.push(TabsPage); 
+        this.getUserData();
+        
 
         // this.AuthService.login(username, password)
         //     .subscribe((response: AuthData) => {
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
         //         this.localStorageService.set("expiresTime", (Date.now() / 1000) + this.auth_data.expires_in);
 
 
-                
+
         //         //this.getUserData();
         //     }, error => {
         //         console.log("login error", error);
@@ -82,17 +82,17 @@ export class LoginComponent implements OnInit {
     }
 
     getUserData() {
-        this.AuthService.getUserData(this.username)
+        this.AuthService.getUserData(this.username.trim())
             .subscribe((user: UserModel) => {
                 console.log('check => localStorage Users', this.localStorageService.get<UserModel>("User"));
                 this.localStorageService.set("User", user);
                 let Userdata = this.localStorageService.get<UserModel>("User");
                 console.log('set => localStorage Users', Userdata);
                 this.AuthService.checkRoleForRedirect();
-                this.navCtrl.push(TabsPage); 
+                this.navCtrl.push(TabsPage);
             }, error => {
                 console.log("Get User Data error", error);
-                this.navCtrl.push(TabsPage); 
+                this.navCtrl.push(TabsPage);
             })
     }
 

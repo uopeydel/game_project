@@ -32,6 +32,7 @@ import { ChatListPage } from "../pages/chatlist/chatlist";
 import { ChatPage } from "../pages/chat/chat";
 import { SettingPage } from "../pages/setting/setting";
 import { SearchForAddFriendModal } from "../pages/searchforaddfriendmodal/searchforaddfriendmodal";
+import { FriendListService } from "../pages/friendlist/friendlist.service";
 //
 
 
@@ -60,7 +61,7 @@ const APP_PROVIDERS = [
   imports: [
     HttpModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp , {tabsPlacement:'top'}),
+    IonicModule.forRoot(MyApp , {tabsPlacement:'top',tabsHideOnSubPages: true}),
 
     LocalStorageModule.withConfig({
       prefix: 'README',
@@ -102,7 +103,8 @@ const APP_PROVIDERS = [
     },
     AuthGuard,
     APP_PROVIDERS,
-    AuthenticationService
+    AuthenticationService,
+    FriendListService
 
   ]
 })
